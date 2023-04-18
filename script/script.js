@@ -9,7 +9,7 @@ let yearOutput = document.getElementById("year_output");
 
 
 let validationDay = document.getElementById('valid_day');
-let validationDayy = document.getElementById('valid_dayv');
+let validationDayv = document.getElementById('valid_dayv');
 let validationMonth = document.getElementById('valid_month');
 let validationMonthv = document.getElementById('valid_monthv');
 let validationYear = document.getElementById('valid_year');
@@ -57,7 +57,48 @@ function validateYear() {
     }
 
 }
-console.log(currentDate.getFullYear());
+
+function validateDay() {
+    validationDayv.style.display = 'none';
+
+    if (monthInput.value == 4 && dayInput.value == 31) {
+        validationDayv.style.display = 'block';
+    }
+    if (monthInput.value == 6 && dayInput.value == 31) {
+        validationDayv.style.display = 'block';
+    }
+    if (monthInput.value == 9 && dayInput.value == 31) {
+        validationDayv.style.display = 'block';
+    }
+    if (monthInput.value == 11 && dayInput.value == 31) {
+        validationDayv.style.display = 'block';
+    }
+    if (yearInput.value % 4 !== 0 && monthInput.value == 2 && dayInput.value > 28) {
+        validationDayv.style.display = 'block';
+    }
+    if (yearInput.value % 4 == 0 && monthInput.value == 2 && dayInput.value > 29) {
+        validationDayv.style.display = 'block';
+    }
+    if (dayInput.value > 31 || dayInput.value < 1) {
+        validationDayv.style.display = 'block';
+    }
+    if (validationDayv.style.display == 'block') {
+        yearOutput.innerHTML = "--";
+        monthOutput.innerHTML = "--";
+        dayOutput.innerHTML = "--";
+    }
+
+}
+
+function validateMonth() {
+    validationMonthv.style.display = 'none';
+    if (monthInput.value > 12 || monthInput.value < 1) {
+        validationMonthv.style.display = 'block';
+    }
+}
+
+
+// console.log(currentDate.getFullYear());
 
 myButton.addEventListener("click", () => {
 
@@ -72,9 +113,11 @@ myButton.addEventListener("click", () => {
         validationYear.style.display = 'block';
     }
 
+
     calculate();
     validateYear();
-
+    validateDay();
+    validateMonth();
 })
 
 
@@ -85,6 +128,7 @@ myButton.addEventListener("click", () => {
 
 dayInput.addEventListener('input', () => {
     validationDay.style.display = 'none';
+    validationDayv.style.display = 'none';
     // fun();
 })
 monthInput.addEventListener('input', () => {
