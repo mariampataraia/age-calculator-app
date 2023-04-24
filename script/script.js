@@ -15,6 +15,8 @@ let validationMonthv = document.getElementById('valid_monthv');
 let validationYear = document.getElementById('valid_year');
 let validationYearv = document.getElementById('valid_yearv');
 
+let labels = document.querySelectorAll('.form-label');
+
 
 let currentDate = new Date();
 
@@ -33,7 +35,7 @@ function calculate() {
     let days = Math.floor(differenceDays - years * 365.25 - months * 30.4375);
 
 
-    if (isNaN(years) || isNaN(years) || isNaN(years)) {
+    if (isNaN(dayInput) || isNaN(monthInput) || isNaN(yearInput)) {
         yearOutput.innerHTML = "--";
         monthOutput.innerHTML = "--";
         dayOutput.innerHTML = "--";
@@ -49,71 +51,107 @@ function calculate() {
 
 
 function validateYear() {
+    let isValid = 1;
+    labels[2].style.color = "black";
+
     if (yearInput.value > currentDate.getFullYear()) {
         validationYearv.style.display = 'block';
         yearOutput.innerHTML = "--";
         monthOutput.innerHTML = "--";
         dayOutput.innerHTML = "--";
+        isValid = 0;
+
+    }
+
+    if (yearInput.value == "") {
+        validationYear.style.display = 'block';
+        isValid = 0;
+    }
+    if (isValid == 0) {
+        labels[2].style.color = "red";
     }
 
 }
 
+
+
 function validateDay() {
     validationDayv.style.display = 'none';
+    validationDay.style.display = 'none';
+    labels[0].style.color = "black";
 
+    let isValid = 1;
     if (monthInput.value == 4 && dayInput.value == 31) {
         validationDayv.style.display = 'block';
+        isValid = 0;
     }
     if (monthInput.value == 6 && dayInput.value == 31) {
         validationDayv.style.display = 'block';
+        isValid = 0;
     }
     if (monthInput.value == 9 && dayInput.value == 31) {
         validationDayv.style.display = 'block';
+        isValid = 0;
+
     }
     if (monthInput.value == 11 && dayInput.value == 31) {
         validationDayv.style.display = 'block';
+        isValid = 0;
+
     }
     if (yearInput.value % 4 !== 0 && monthInput.value == 2 && dayInput.value > 28) {
         validationDayv.style.display = 'block';
+        isValid = 0;
+
     }
     if (yearInput.value % 4 == 0 && monthInput.value == 2 && dayInput.value > 29) {
         validationDayv.style.display = 'block';
+        isValid = 0;
+
     }
-    if (dayInput.value > 31 || dayInput.value < 1) {
+    if (dayInput.value > 31 || dayInput.value < 0 || dayInput.value === 0) {
         validationDayv.style.display = 'block';
+        isValid = 0;
+
+    }
+
+    if (dayInput.value == "") {
+        validationDay.style.display = 'block';
+        isValid = 0;
     }
     if (validationDayv.style.display == 'block') {
         yearOutput.innerHTML = "--";
         monthOutput.innerHTML = "--";
         dayOutput.innerHTML = "--";
     }
-
+    if (isValid == 0) {
+        labels[0].style.color = "red";
+    }
 }
 
 function validateMonth() {
     validationMonthv.style.display = 'none';
-    if (monthInput.value > 12 || monthInput.value < 1) {
+    validationMonth.style.display = 'none';
+    labels[1].style.color = "black";
+
+    let isValid = 1;
+    if (monthInput.value > 12 || monthInput.value < 0 || monthInput.value === 0) {
         validationMonthv.style.display = 'block';
+        isValid = 0;
+
+    }
+    if (monthInput.value == "") {
+        validationMonth.style.display = 'block';
+        isValid = 0;
+
+    }
+    if (isValid == 0) {
+        labels[1].style.color = "red";
     }
 }
 
 
-// console.log(currentDate.getFullYear());
-
 myButton.addEventListener("click", () => {
-
-    if (dayInput.value == "") {
-        validationDay.style.display = 'block';
-        dayOutput.innerHTML = "";
-    }
-    if (monthInput.value == "") {
-        validationMonth.style.display = 'block';
-    }
-    if (yearInput.value == "") {
-        validationYear.style.display = 'block';
-    }
-
-
     calculate();
     validateYear();
     validateDay();
@@ -129,18 +167,24 @@ myButton.addEventListener("click", () => {
 dayInput.addEventListener('input', () => {
     validationDay.style.display = 'none';
     validationDayv.style.display = 'none';
-    // fun();
+    labels[0].style.color = "black";
+
+
 })
 monthInput.addEventListener('input', () => {
     validationMonth.style.display = 'none';
-    // fun();
+    validationMonthv.style.display = 'none';
+    labels[1].style.color = "black";
+
+
 })
 yearInput.addEventListener('input', () => {
     validationYear.style.display = 'none';
     validationYearv.style.display = 'none';
+    labels[2].style.color = "black";
+
 
 })
-
 
 
 

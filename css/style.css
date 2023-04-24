@@ -48,7 +48,10 @@ body {
     height: 60%;
 }
 
-input[type=number] {}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
 
 .parent {
     position: relative;
@@ -58,4 +61,13 @@ input[type=number] {}
     font-size: 8px;
     display: none;
     position: absolute;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
 }
