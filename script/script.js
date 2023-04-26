@@ -16,6 +16,7 @@ let validationYear = document.getElementById('valid_year');
 let validationYearv = document.getElementById('valid_yearv');
 
 let labels = document.querySelectorAll('.form-label');
+let formInput = document.querySelectorAll('.form-control');
 
 
 let currentDate = new Date();
@@ -35,17 +36,18 @@ function calculate() {
     let days = Math.floor(differenceDays - years * 365.25 - months * 30.4375);
 
 
-    if (isNaN(dayInput) || isNaN(monthInput) || isNaN(yearInput)) {
+
+    if (dayInput.value.length == 0 || monthInput.value.length == 0 || yearInput.value.length == 0) {
+
         yearOutput.innerHTML = "--";
         monthOutput.innerHTML = "--";
         dayOutput.innerHTML = "--";
-
     } else {
-
         yearOutput.innerHTML = years;
         monthOutput.innerHTML = months;
         dayOutput.innerHTML = days;
     }
+
 
 }
 
@@ -53,6 +55,7 @@ function calculate() {
 function validateYear() {
     let isValid = 1;
     labels[2].style.color = "black";
+    formInput[2].style.borderColor = "black";
 
     if (yearInput.value > currentDate.getFullYear()) {
         validationYearv.style.display = 'block';
@@ -69,6 +72,7 @@ function validateYear() {
     }
     if (isValid == 0) {
         labels[2].style.color = "red";
+        formInput[2].style.borderColor = "red";
     }
 
 }
@@ -79,6 +83,8 @@ function validateDay() {
     validationDayv.style.display = 'none';
     validationDay.style.display = 'none';
     labels[0].style.color = "black";
+    formInput[0].style.borderColor = "black";
+
 
     let isValid = 1;
     if (monthInput.value == 4 && dayInput.value == 31) {
@@ -126,6 +132,8 @@ function validateDay() {
     }
     if (isValid == 0) {
         labels[0].style.color = "red";
+        formInput[0].style.borderColor = "red";
+
     }
 }
 
@@ -133,6 +141,8 @@ function validateMonth() {
     validationMonthv.style.display = 'none';
     validationMonth.style.display = 'none';
     labels[1].style.color = "black";
+    formInput[1].style.borderColor = "black";
+
 
     let isValid = 1;
     if (monthInput.value > 12 || monthInput.value < 0 || monthInput.value === 0) {
@@ -147,15 +157,18 @@ function validateMonth() {
     }
     if (isValid == 0) {
         labels[1].style.color = "red";
+        formInput[1].style.borderColor = "red";
+
     }
 }
 
 
 myButton.addEventListener("click", () => {
-    calculate();
+
     validateYear();
     validateDay();
     validateMonth();
+    calculate();
 })
 
 
@@ -168,6 +181,7 @@ dayInput.addEventListener('input', () => {
     validationDay.style.display = 'none';
     validationDayv.style.display = 'none';
     labels[0].style.color = "black";
+    formInput[0].style.borderColor = "black";
 
 
 })
@@ -175,6 +189,8 @@ monthInput.addEventListener('input', () => {
     validationMonth.style.display = 'none';
     validationMonthv.style.display = 'none';
     labels[1].style.color = "black";
+    formInput[1].style.borderColor = "black";
+
 
 
 })
@@ -182,6 +198,7 @@ yearInput.addEventListener('input', () => {
     validationYear.style.display = 'none';
     validationYearv.style.display = 'none';
     labels[2].style.color = "black";
+    formInput[2].style.borderColor = "black";
 
 
 })
