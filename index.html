@@ -7,6 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/fonts.css">
   <title>Frontend Mentor | Age calculator app</title>
 
 
@@ -16,7 +17,6 @@
 
 
   <main class="box">
-
     <form class="row w-100">
       <div class="col-3 parent">
         <label for="day" class="form-label">DAY</label>
@@ -40,9 +40,9 @@
       </div>
     </form>
 
-    <section class="d-flex align-items-center">
-      <div class="line w-75"></div>
-      <div class="circle d-flex align-items-center justify-content-center"><svg class="arrow" id="button"
+    <section class="d-flex align-items-center w-100">
+      <div class="line"></div>
+      <div class="circle d-flex align-items-center justify-content-center p-2"><svg class="arrow" id="button"
           xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44">
           <g fill="none" stroke="#FFF" stroke-width="2">
             <path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44" />
@@ -51,10 +51,10 @@
     </section>
 
     <section class="output">
-      <p class="output_text display-5 fw-bold"><span class="purple_text text-info" id="year_output">--</span> years</p>
-      <p class="output_text display-5 fw-bold"><span class="purple_text text-info" id="month_output">--</span> months
+      <p class="output_text display-5 fw-bold"><span class="purple_text" id="year_output">--</span> years</p>
+      <p class="output_text display-5 fw-bold"><span class="purple_text" id="month_output">--</span> months
       </p>
-      <p class="output_text display-5 fw-bold"><span class="purple_text text-info" id="day_output">--</span> days</p>
+      <p class="output_text display-5 fw-bold"><span class="purple_text" id="day_output">--</span> days</p>
 
 
     </section>
