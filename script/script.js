@@ -19,7 +19,16 @@ let labels = document.querySelectorAll('.form-label');
 let formInput = document.querySelectorAll('.form-control');
 
 
+
 let currentDate = new Date();
+
+
+
+
+
+
+
+
 
 function calculate() {
 
@@ -55,7 +64,7 @@ function calculate() {
 function validateYear() {
     let isValid = 1;
     labels[2].style.color = "black";
-    formInput[2].style.borderColor = "black";
+    formInput[2].style.borderColor = "#e7e7e7";
 
     if (yearInput.value > currentDate.getFullYear()) {
         validationYearv.style.display = 'block';
@@ -71,8 +80,8 @@ function validateYear() {
         isValid = 0;
     }
     if (isValid == 0) {
-        labels[2].style.color = "red";
-        formInput[2].style.borderColor = "red";
+        labels[2].style.color = "#e75764";
+        formInput[2].style.borderColor = "#e75764";
     }
 
 }
@@ -83,7 +92,7 @@ function validateDay() {
     validationDayv.style.display = 'none';
     validationDay.style.display = 'none';
     labels[0].style.color = "black";
-    formInput[0].style.borderColor = "black";
+    formInput[0].style.borderColor = "#e7e7e7";
 
 
     let isValid = 1;
@@ -131,8 +140,8 @@ function validateDay() {
         dayOutput.innerHTML = "--";
     }
     if (isValid == 0) {
-        labels[0].style.color = "red";
-        formInput[0].style.borderColor = "red";
+        labels[0].style.color = "#e75764";
+        formInput[0].style.borderColor = "#e75764";
 
     }
 }
@@ -141,7 +150,7 @@ function validateMonth() {
     validationMonthv.style.display = 'none';
     validationMonth.style.display = 'none';
     labels[1].style.color = "black";
-    formInput[1].style.borderColor = "black";
+    formInput[1].style.borderColor = "#e7e7e7";
 
 
     let isValid = 1;
@@ -156,8 +165,8 @@ function validateMonth() {
 
     }
     if (isValid == 0) {
-        labels[1].style.color = "red";
-        formInput[1].style.borderColor = "red";
+        labels[1].style.color = "#e75764";
+        formInput[1].style.borderColor = "#e75764";
 
     }
 }
@@ -181,7 +190,7 @@ dayInput.addEventListener('input', () => {
     validationDay.style.display = 'none';
     validationDayv.style.display = 'none';
     labels[0].style.color = "black";
-    formInput[0].style.borderColor = "black";
+    formInput[0].style.borderColor = "#9b81ca";
 
 
 })
@@ -189,7 +198,7 @@ monthInput.addEventListener('input', () => {
     validationMonth.style.display = 'none';
     validationMonthv.style.display = 'none';
     labels[1].style.color = "black";
-    formInput[1].style.borderColor = "black";
+    formInput[1].style.borderColor = "#9b81ca";
 
 
 
@@ -198,7 +207,7 @@ yearInput.addEventListener('input', () => {
     validationYear.style.display = 'none';
     validationYearv.style.display = 'none';
     labels[2].style.color = "black";
-    formInput[2].style.borderColor = "black";
+    formInput[2].style.borderColor = "#9b81ca";
 
 
 })

@@ -8,8 +8,11 @@
     font-weight: bold;
 }
 
+
+
 body {
     height: 100vh;
+    background-color: #f0f0f0;
 }
 
 .box {
@@ -37,14 +40,26 @@ body {
 
 .circle {
     background-color: #864cff;
-    width: 55px;
-    height: 55px;
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
     cursor: pointer;
 }
 
+.circle:active {
+    background-color: black;
+
+}
+
 .purple_text {
-    color: #864cff;
+    color: #844cff;
+}
+
+.output_text {
+    font-family: 'Poppins-ExtraBoldItalic';
+    font-size: 45px;
+    line-height: 1;
+
 }
 
 .arrow {
@@ -57,6 +72,12 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
 }
 
+input[type=number] {
+    border: 2px solid #e9e9e9;
+    caret-color: #9b81ca;
+    cursor: pointer;
+}
+
 .parent {
     position: relative;
 }
@@ -65,6 +86,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 8px;
     display: none;
     position: absolute;
+    color: #e75764;
 }
 
 .attribution {
@@ -79,13 +101,20 @@ input[type=number]::-webkit-outer-spin-button {
 
 .form-label {
     font-family: 'Poppins-Regular';
+    font-size: 0.8rem;
+    line-height: 0.8;
+    color: #606060;
+
 }
 
 .form-control {
     font-family: 'Poppins-ExtraBold';
 }
 
-.output_text {
-    font-family: 'Poppins-ExtraBoldItalic';
 
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
 }
