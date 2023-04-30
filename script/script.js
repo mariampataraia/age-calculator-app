@@ -7,7 +7,6 @@ let dayOutput = document.getElementById("day_output");
 let monthOutput = document.getElementById("month_output");
 let yearOutput = document.getElementById("year_output");
 
-
 let validationDay = document.getElementById('valid_day');
 let validationDayv = document.getElementById('valid_dayv');
 let validationMonth = document.getElementById('valid_month');
@@ -18,14 +17,7 @@ let validationYearv = document.getElementById('valid_yearv');
 let labels = document.querySelectorAll('.form-label');
 let formInput = document.querySelectorAll('.form-control');
 
-
-
 let currentDate = new Date();
-
-
-
-
-
 
 
 
@@ -134,15 +126,15 @@ function validateDay() {
         validationDay.style.display = 'block';
         isValid = 0;
     }
-    if (validationDayv.style.display == 'block') {
-        yearOutput.innerHTML = "--";
-        monthOutput.innerHTML = "--";
-        dayOutput.innerHTML = "--";
-    }
+
     if (isValid == 0) {
         labels[0].style.color = "#e75764";
         formInput[0].style.borderColor = "#e75764";
-
+    }
+    if (validationDayv.style.display == 'block' || validationDay.style.display == 'block') {
+        yearOutput.innerHTML = "--";
+        monthOutput.innerHTML = "--";
+        dayOutput.innerHTML = "--";
     }
 }
 
@@ -167,17 +159,20 @@ function validateMonth() {
     if (isValid == 0) {
         labels[1].style.color = "#e75764";
         formInput[1].style.borderColor = "#e75764";
-
+    }
+    if (validationMonthv.style.display == 'block') {
+        yearOutput.innerHTML = "--";
+        monthOutput.innerHTML = "--";
+        dayOutput.innerHTML = "--";
     }
 }
 
 
 myButton.addEventListener("click", () => {
-
+    calculate();
     validateYear();
     validateDay();
     validateMonth();
-    calculate();
 })
 
 
